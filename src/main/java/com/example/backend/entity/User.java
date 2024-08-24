@@ -1,7 +1,7 @@
 package com.example.backend.entity;
 
-import javax.persistence.*;
-
+//import javax.persistence.*;
+import jakarta.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
