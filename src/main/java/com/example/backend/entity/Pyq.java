@@ -1,15 +1,19 @@
 package com.example.backend.entity;
 
+import jakarta.persistence.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
-
+@Entity
+@Table(name = "pyq_table")
 public class Pyq {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long uuid;
     private Long userid;
     private String content;
     private String imgUrl;
-    private MultipartFile file;
+//    private MultipartFile file;
     private int deleted;
     private Date createTime;
 
@@ -45,13 +49,13 @@ public class Pyq {
         this.imgUrl = imgUrl;
     }
 
-    public MultipartFile getFile() {
-        return file;
-    }
-
-    public void setFile(MultipartFile file) {
-        this.file = file;
-    }
+//    public MultipartFile getFile() {
+//        return file;
+//    }
+//
+//    public void setFile(MultipartFile file) {
+//        this.file = file;
+//    }
 
     public int getDeleted() {
         return deleted;

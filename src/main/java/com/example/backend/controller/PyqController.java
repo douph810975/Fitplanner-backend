@@ -24,8 +24,16 @@ public class PyqController {
     @PostMapping
     public String addPyq(@RequestParam(value = "image", required = false) MultipartFile image,  // 接收图片文件
                          @RequestParam("text") String text) throws Exception {
-
-        Long uuid= pyqService.insertPyq(image,text,(long)4);
-        //return uuid.toString();
+        //pyqService.insertPyq(image,text,(long)4);
+        try {
+            Long uuid= pyqService.insertPyq(image,text,(long)4);
+            if(uuid!=null){
+                return uuid.toString();
+            }else {
+                return "null";
+            }
+        } catch (Exception e) {
+            return e.getMessage();
+        }
     }
 }
